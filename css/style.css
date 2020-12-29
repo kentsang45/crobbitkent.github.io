@@ -8,6 +8,7 @@
  */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,800);
 @import url(https://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic);
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
 html {
   line-height: 1.15;
   /* 1 */
@@ -455,6 +456,7 @@ h4, .h4 {
     line-height: 1.22222222; } }
 
 blockquote {
+  font-family: 'Ubuntu Mono', monospace;
   font-size: 1.25em;
   line-height: 1.25;
   padding: 0; }
@@ -836,25 +838,21 @@ POST STYLING
   margin: 2.5em 0;
   padding: 0;
   line-height: 1.8;
-  position: relative; }
-  .post blockquote:before {
-    content: "";
-    position: absolute;
-    top: -1.25em;
-    background: seagreen;
-    display: block;
-    height: 2px;
-    width: 150px;
-    left: calc(50% - 75px); }
+  position: relative;
+  background: rgba(128, 128, 128, 0.2);
+  letter-spacing: 0.025em;
+}
+
   .post blockquote:after {
     content: "";
     position: absolute;
-    bottom: -1.25em;
-    background: seagreen;
+    background: #2e8b57;
     display: block;
     height: 2px;
-    width: 150px;
-    left: calc(50% - 75px); }
+    width: 100%;
+    left: 0;
+    bottom: -2px;
+   }
 
 .post .meta {
   text-align: center;
