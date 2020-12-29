@@ -1,8 +1,8 @@
-title: Long Haul
-description: Long Form Jekyll theme built with SASS / COMPASS / SUSY
+title: Mingyu Sang's blog
+description: 백엔드 프로그래머 크로빗켄트
 
-url: http://brianmaierjr.github.com/long-haul
-baseurl: "/long-haul"
+url: http://crobbitkent.github.com
+baseurl: "/"
 paginate_path: "blog/page:num/"
 permalink: blog/:title/
 
@@ -23,13 +23,13 @@ navigation:
     url: /contact
 
 social:
-  github: brianmaierjr
-  twitter: brianmaierjr
-  facebook: brianmaierjr
-  email: brimaidesigns@gmail.com
-  linkedin: brianmaierjr
+  github: crobbitkent
+  twitter: crobbitkent
+  facebook: 
+  email: crobbitkent@gmail.com
+  linkedin: 
 
-google_analytics: "UA-58263416-1"
+google_analytics: 
 
 disqus:
-    shortname: brianmaierjr
+    shortname: crobbitkent
