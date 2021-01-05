@@ -28,13 +28,13 @@ API에서 받은 다양한 정보들을 모아서 내가 원하는 기능이 나
 
 
 #### 2. API 받아오는 법
-https://data.go.kr/index.do
+<https://data.go.kr/index.do>
 공공데이터포털 사이트에 회원가입을 하고 접속한다.
 동네예보조회 API와 중기예보 조회 API를 검색하고 활용신청한다.
 
 ##### APIParser 클래스
 ##### 1) API를 위한 주소를 만든다.
-```{.java]}
+```java
         StringBuilder urlBuilder = new StringBuilder(apiBaseURL[type.ordinal()]);  
         urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=" + serviceKey);  
         appendUrlBuilder(urlBuilder, "&", "numOfRows", "500");  
@@ -58,7 +58,7 @@ https://data.go.kr/index.do
 ```
 
 ##### 2) http로 연결하기
-```{.java]}
+```java
         URL url = new URL(urlBuilder.toString());  
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();  
         conn.setRequestMethod("GET");  
@@ -85,7 +85,7 @@ https://data.go.kr/index.do
 ```
 
 ##### 3) 연결해서 나온 값을 JSON형식으로 저장한다.
-```{.python]}  
+```java
         String jsonData = sb.toString();  
 
         JSONObject obj = new JSONObject();  
@@ -99,7 +99,7 @@ https://data.go.kr/index.do
 ```
 
 ##### 4) JSONArray를 순회하며 Weather라는 클래스에 정보를 주입한다.
-```{.c++]}  
+```java
     // 초단기 예보 API를 통해 현재 날씨를 설정  
 	private void getShortForecast() throws IOException, ParseException {  
 		String baseDate = LocalDateTime.now().format(DateTimeFormatter.BASIC_ISO_DATE);  
