@@ -1,13 +1,13 @@
 ---
 layout: post
 title:  "기상청 동네예보 API 사용해보기"
-date:   2020-01-04
+date:   2020-01-05
 ---
 
 #### 1. 요구사항
 자바 프로그래밍만 공부하다가 API를 직접 쓰고 사이트를 구축해보고 싶었습니다. 
 
->지금의 날씨, 현 시간부터 3시간 단위로 나오는 오늘의 날씨, 주간 날씨  
+- 지금의 날씨, 현 시간부터 3시간 단위로 나오는 오늘의 날씨, 주간 날씨  
 
 이렇게 세가지 기능을 넣는 것이 목표였습니다.
 
@@ -33,8 +33,9 @@ https://data.go.kr/index.do
 동네예보조회 API와 중기예보 조회 API를 검색하고 활용신청한다.
 
 ##### APIParser 클래스
-   ##### 1) API를 위한 주소를 만든다.
-   >   StringBuilder urlBuilder = new StringBuilder(apiBaseURL[type.ordinal()]);  
+##### 1) API를 위한 주소를 만든다.
+```{.java]}
+        StringBuilder urlBuilder = new StringBuilder(apiBaseURL[type.ordinal()]);  
         urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=" + serviceKey);  
         appendUrlBuilder(urlBuilder, "&", "numOfRows", "500");  
         appendUrlBuilder(urlBuilder, "&", "pageNo", "1");  
@@ -51,12 +52,14 @@ https://data.go.kr/index.do
             appendUrlBuilder(urlBuilder, "&", "ny", dao.getTodayWeather().getNy());  
         }  
 
-   > private static void appendUrlBuilder(StringBuilder builder, String mark, String a1, String a2) throws IOException {  
+    private static void appendUrlBuilder(StringBuilder builder, String mark, String a1, String a2) throws IOException {  
       builder.append(mark + URLEncoder.encode(a1, "UTF-8") + "=" + URLEncoder.encode(a2, "UTF-8"));  
     }  
+```
 
-   ##### 2) http로 연결하기
-   >  URL url = new URL(urlBuilder.toString());  
+##### 2) http로 연결하기
+```{.java]}
+        URL url = new URL(urlBuilder.toString());  
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();  
         conn.setRequestMethod("GET");  
         conn.setRequestProperty("Content-type", "application/json");  
@@ -79,9 +82,11 @@ https://data.go.kr/index.do
 
         reader.close();  
         conn.disconnect();  
+```
 
-   ##### 3) 연결해서 나온 값을 JSON형식으로 저장한다.
-    >String jsonData = sb.toString();  
+##### 3) 연결해서 나온 값을 JSON형식으로 저장한다.
+```{.java]}  
+        String jsonData = sb.toString();  
 
         JSONObject obj = new JSONObject();  
         JSONParser jsonParser = new JSONParser();  
@@ -91,10 +96,11 @@ https://data.go.kr/index.do
         JSONObject parse_items = (JSONObject) parse_body.get("items");  
         
         return (JSONArray) parse_items.get("item");  
+```
 
-   ##### 4) JSONArray를 순회하며 Weather라는 클래스에 정보를 주입한다.
-   
-  > // 초단기 예보 API를 통해 현재 날씨를 설정  
+##### 4) JSONArray를 순회하며 Weather라는 클래스에 정보를 주입한다.
+```{.java]}  
+    // 초단기 예보 API를 통해 현재 날씨를 설정  
 	private void getShortForecast() throws IOException, ParseException {  
 		String baseDate = LocalDateTime.now().format(DateTimeFormatter.BASIC_ISO_DATE);  
 		String orgTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH")) + "00";  
@@ -122,7 +128,7 @@ https://data.go.kr/index.do
 			}  
 		} // for end  
 	}  
-
+```
 
 
 
