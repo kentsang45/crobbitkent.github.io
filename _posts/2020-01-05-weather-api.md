@@ -85,7 +85,7 @@ https://data.go.kr/index.do
 ```
 
 ##### 3) 연결해서 나온 값을 JSON형식으로 저장한다.
-```{.java]}  
+```{.python]}  
         String jsonData = sb.toString();  
 
         JSONObject obj = new JSONObject();  
@@ -99,7 +99,7 @@ https://data.go.kr/index.do
 ```
 
 ##### 4) JSONArray를 순회하며 Weather라는 클래스에 정보를 주입한다.
-```{.java]}  
+```{.c++]}  
     // 초단기 예보 API를 통해 현재 날씨를 설정  
 	private void getShortForecast() throws IOException, ParseException {  
 		String baseDate = LocalDateTime.now().format(DateTimeFormatter.BASIC_ISO_DATE);  
