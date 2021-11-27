@@ -1,7 +1,7 @@
 title: Mingyu Sang's blog
 description: 백엔드 프로그래머 크로빗켄트
 
-url: http://crobbitkent.github.com
+url: http://kentsang.github.com
 baseurl: "/"
 paginate_path: "blog/page:num/"
 permalink: blog/:title/
